@@ -1,0 +1,10 @@
+# CCLS cache
+    
+.ccls-cache/**
+
+# npm-related files (mostly for language server packages)
+    
+package-lock.json
+package.json
+node_modules
+
