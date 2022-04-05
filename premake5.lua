@@ -26,6 +26,9 @@ project("AutumnSandcastle")
             "DEBUG"
         })
         symbols("On")
+        postbuildcommands({
+            "doxygen"
+        })
 
     filter("configurations:Release")
         defines({
@@ -33,11 +36,25 @@ project("AutumnSandcastle")
         })
         optimize("On")
 
-newaction
-{
-    trigger     = "docs",
-    description = "Build documentation",
-    execute = function ()
-        os.execute "doxygen"
-    end
-}
+project("AutumnSandcastleTests")
+    kind("ConsoleApp")
+    language("C")
+    targetdir("test/bin/%{cfg.buildcfg}")
+    libdirs({
+        "libs/**"
+    })
+
+    links({
+        "unity",
+        "simile"
+    })
+
+    files({
+        "test/inc/**.h",
+        "test/src/**.c"
+    })
+
+    postbuildcommands({
+        "%{cfg.buildtarget.relpath}"
+    })
+
