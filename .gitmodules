@@ -1,0 +1,3 @@
+[submodule "libs/simile"]
+	path = libs/simile
+	url = git@github.com:ExVacuum/simile.git
