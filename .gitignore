@@ -3,11 +3,6 @@
 .ccls-cache/**
 
 
-# Documentation
-
-doc
-
-
 # npm-related files (mostly for language server packages)
     
 package-lock.json
