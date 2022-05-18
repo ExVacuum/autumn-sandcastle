@@ -5,6 +5,8 @@
       "-DDEBUG",
       "-Ilibs/simile/inc",
       "-g",
+      "-fprofile-arcs",
+      "-ftest-coverage",
       "-c",
       "-o",
       "obj/Debug/AutumnSandcastle/autumn-sandcastle.o",

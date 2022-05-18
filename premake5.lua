@@ -17,7 +17,6 @@ project("AutumnSandcastle")
     links({
         "simile"
     })
-
     files({
         "inc/**.hpp",
         "src/**.cpp"
@@ -31,7 +30,15 @@ project("AutumnSandcastle")
         postbuildcommands({
             "doxygen"
         })
-
+    filter({ "system:linux", "configurations:Debug", "action:gmake or action:gmake2" })
+        buildoptions({
+            "-fprofile-arcs",
+            "-ftest-coverage"
+        })
+        linkoptions({
+            "-lgcov",
+            "--coverage"
+        })
     filter("configurations:Release")
         defines({
             "NDEBUG"
@@ -59,4 +66,17 @@ project("AutumnSandcastleTests")
     postbuildcommands({
         "%{cfg.buildtarget.relpath}"
     })
+    filter({ "system:linux", "action:gmake or action:gmake2" })
+        postbuildcommands({
+            "gcovr"
+        })
+        buildoptions({
+            "-fprofile-arcs",
+            "-ftest-coverage"
+        })
+        linkoptions({
+            "-lgcov",
+            "--coverage"
+        })
+
 
