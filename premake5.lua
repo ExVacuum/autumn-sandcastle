@@ -15,6 +15,7 @@ project("AutumnSandcastle")
         "libs/simile/inc"
     })
     links({
+        "gcov",
         "simile"
     })
     files({
@@ -32,11 +33,9 @@ project("AutumnSandcastle")
         })
     filter({ "system:linux", "configurations:Debug", "action:gmake or action:gmake2" })
         buildoptions({
-            "-fprofile-arcs",
-            "-ftest-coverage"
+            "--coverage"
         })
         linkoptions({
-            "-lgcov",
             "--coverage"
         })
     filter("configurations:Release")
@@ -54,6 +53,7 @@ project("AutumnSandcastleTests")
     })
 
     links({
+        "gcov",
         "criterion",
         "simile"
     })
@@ -71,11 +71,9 @@ project("AutumnSandcastleTests")
             "gcovr"
         })
         buildoptions({
-            "-fprofile-arcs",
-            "-ftest-coverage"
+            "--coverage"
         })
         linkoptions({
-            "-lgcov",
             "--coverage"
         })
 
