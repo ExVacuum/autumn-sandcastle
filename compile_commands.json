@@ -1,0 +1,17 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-DDEBUG",
+      "-Ilibs/simile/inc",
+      "-g",
+      "-c",
+      "-o",
+      "obj/Debug/AutumnSandcastle/autumn-sandcastle.o",
+      "src/autumn-sandcastle.cpp"
+    ],
+    "directory": "/mass/projects/autumn-sandcastle",
+    "file": "/mass/projects/autumn-sandcastle/src/autumn-sandcastle.cpp",
+    "output": "/mass/projects/autumn-sandcastle/obj/Debug/AutumnSandcastle/autumn-sandcastle.o"
+  }
+]

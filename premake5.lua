@@ -6,19 +6,21 @@ workspace("AutumnSandcastle")
 
 project("AutumnSandcastle")
     kind("ConsoleApp")
-    language("C")
+    language("C++")
     targetdir("bin/%{cfg.buildcfg}")
     libdirs({
         "libs/**"
     })
-
+    includedirs({
+        "libs/simile/inc"
+    })
     links({
         "simile"
     })
 
     files({
-        "inc/**.h",
-        "src/**.c"
+        "inc/**.hpp",
+        "src/**.cpp"
     })
 
     filter("configurations:Debug")
@@ -38,20 +40,20 @@ project("AutumnSandcastle")
 
 project("AutumnSandcastleTests")
     kind("ConsoleApp")
-    language("C")
+    language("C++")
     targetdir("test/bin/%{cfg.buildcfg}")
     libdirs({
         "libs/**"
     })
 
     links({
-        "unity",
+        "criterion",
         "simile"
     })
 
     files({
-        "test/inc/**.h",
-        "test/src/**.c"
+        "test/inc/**.hpp",
+        "test/src/**.cpp"
     })
 
     postbuildcommands({
